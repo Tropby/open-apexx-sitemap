@@ -1,0 +1,26 @@
+{*
+
+	MODULE = list of modules
+	
+	MODULE.TITLE = List of Module Titles
+	MODULE.RESULT = Content tree of this module
+	
+	RESULT.LEVEL = Level of the content
+	RESULT.TITLE = Title of the content
+	RESULT.LINK = Link to the content
+
+*}
+
+<h1>Sitemap</h1>
+
+{list MODULE}
+
+	<h2>{MODULE.TITLE}</h2>
+	
+	<ul>
+	{list MODULE.RESULT}
+		<li><a href="{RESULT.LINK}">{RESULT.TITLE}</a></li>
+	{/list}
+	</ul>
+
+{/list}

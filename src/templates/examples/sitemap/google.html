@@ -1,0 +1,29 @@
+{*
+
+	MODULE = list of modules
+	
+	MODULE.TITLE = List of Module Titles
+	MODULE.RESULT = Content tree of this module
+	
+	RESULT.LEVEL = Level of the content
+	RESULT.TITLE = Title of the content
+	RESULT.LINK = Link to the content
+
+*}
+
+<?xml version="1.0" encoding="UTF-8"?>
+
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+
+	{list MODULE}
+		{list MODULE.RESULT}	
+			<url>
+				<loc>{PROTOCOL}{DOMAINNAME}{RESULT.LINK}</loc>
+				<lastmod>{DATE('Y-m-d',RESULT.LAST_CHANGED)}</lastmod>
+				<changefreq>daily</changefreq>
+				<priority>0.5</priority>
+			</url>
+		{/list}
+	{/list}
+
+</urlset> 
