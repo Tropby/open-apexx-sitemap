@@ -11,13 +11,27 @@
 
 *}
 
+{LEVEL = 0}
 {list MODULE}
 
 	<h2>{MODULE.TITLE}</h2>
 	
 	<ul>
 	{list MODULE.RESULT}
-		<li><a href="{RESULT.LINK}">{RESULT.TITLE}</a></li>
+
+		{if RESULT.LEVEL < LEVEL}
+			</ul>
+		{else}
+			{if RESULT.LEVEL > LEVEL}
+				<ul>
+			{/if}
+		{/if}		
+		
+		<li>
+			<a href="{RESULT.LINK}">{RESULT.TITLE}</a>
+		</li>
+		
+		{LEVEL = RESULT.LEVEL}
 	{/list}
 	</ul>
 
